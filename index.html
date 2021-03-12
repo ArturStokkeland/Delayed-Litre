@@ -1,0 +1,174 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Delayedlitre</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+  </head>
+
+  <body>
+
+    <div id="notLoggedIn" class="hidden">
+      <h1>Welcome to Delayedlitre, please log in using Facebook</h1>
+      <button id="facebookLogin"><img src="images/facebookLogo.png" id="fbLogo" /></button>
+      <form id="bypassForm">
+        <input id="superSecretPassword" type="text" placeholder="password">
+        <button id="submitPassword">Login with password</button>
+      </form>
+    </div>
+
+    <div id="loggedIn" class="hidden">
+
+      <nav>
+        <div id="navContent">
+          <ul>
+            <li id="logo"><img src="images/default.png" /></li>
+            <li id="searchBox">
+              <form id="searchForm">
+                <input id="searchText" type="text" placeholder="Search">
+                <button id="searchLink"><span class="fa fa-search"></span></button>
+              </form>
+            </li>
+            <li id="navigationButtons">
+              <span class="fa fa-newspaper-o navLink" id="wallLink"><span class="tooltip">News feed</span></span>
+              <span class="fa fa-user navLink" id="libraryLink"><span class="tooltip">Profile</span></span>
+              <span class="fa fa-upload navLink" id="uploadLink"><span class="tooltip">Upload image</span></span>
+              <span class="fa fa-cog navLink" id="settingsLink"><span class="tooltip">Settings</span></span>
+              <span class="fa fa-sign-out navLink" id="facebookLogout"><span class="tooltip">Log out</span></span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div id="content">
+
+        
+
+        <div id="wall" class="container hidden">
+        </div>
+
+        <div id="library" class="hidden">
+          
+          <div id="libraryUserInfo" class="container">
+            <img id="userProfilePicture" src="images/default.png">
+            <h1 id="userName">User</h1>
+            <div id="followButtons">
+              <button id="follow" class="followButton hidden"><span class="fa fa-user-plus"></span> Follow</button>
+              <button id="unfollow" class="followButton hidden"><span class="fa fa-check"></span> Followed</button>
+            </div>
+          </div>
+
+          <div id="libraryGallery" class="container flexboxContainer">
+          </div>
+
+        </div>
+
+        <div id="search" class="hidden container">
+
+          <div id="searchResult" class="flexboxContainer"></div>
+
+        </div>
+        
+        <div id="upload" class="hidden container">
+          
+          <h1>Upload Image</h1>
+          <label>Upload image file:</label>
+          <input type="file" id="imageInput" accept=".png, .jpg, .jpeg"/>
+          <br>
+          <label>Description:</label>
+          <textarea id="imageDescriptionInput"></textarea>
+          <br>
+          <button id="imageUploadButton">Upload</button>
+
+
+        </div>
+
+        <div id="settings" class="hidden container">
+
+          <h1>Settings</h1>
+          <div id="fileDropper"><h1>Drag and drop a file here to upload a new profile picture</h1></div>
+          <br>
+          <label>Currently selected image: </label>
+          <img alt="uploaded profile picture" src="images/default.png" id="settingsThumbnail">
+          <br>
+          <label>Username</label>
+          <input type="text" id="newUsername" />
+          <br>
+          <button id="updateSettings">Update Settings</button>
+        
+        </div>
+
+        <div id="loading" class="container">
+
+          <img src="images/load.gif" alt="loading cog gif" />
+
+        </div>
+
+        <div id="error" class="container hidden">
+
+          <h1 id="errorMessage">Error goes here</h1>
+
+        </div>
+
+      </div>
+
+      <div id="modal" class="hidden">
+
+        <div id="modalContent">
+
+          <div id="modalImageContainer">
+            <img alt="Image uploaded by user" src="images/default.png" id="modalImage" />
+          </div>
+
+          <div id="modalRest">
+            <div id="modalPosterInfo">
+              <img alt="user profile picture" src="images/default.png" id="modalPosterImage" />
+              <p><strong id="modalPosterName"></strong></p>
+            </div>
+            <hr>
+            <div id="modalComments"></div>
+            <hr>
+            <div id="modalPostComment">
+              <form id="commentForm">
+                <input type="text" placeholder="Write a comment" id="modalWriteComment">
+                <button><span class="fa fa-send-o" id="modalPostCommentButton"></span></button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="errorModal" class="hidden">
+
+      <div id="errorModalContent">
+        <p id="errorModalMessage"></p>
+        <p id="errorModalMessage2">Press anywhere to dismiss</p>
+      </div>
+
+    </div>
+
+    <footer>
+
+      <p>CI609 - Assignment 1<br>&copy; Artur Stokkeland, 2020</p>
+
+    </footer>
+
+    <script src="scripts/index.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+  </body>
+
+</html>
